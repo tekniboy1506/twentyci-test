@@ -1,0 +1,19 @@
+verision: '3'
+services:
+  magento2:
+    build:
+      context: .
+    volumes:
+      - /path/to/magento2:/var/www/html
+    ports:
+      - "80:80"
+    links:
+      - db
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD: password
+      - MYSQL_USER: magento
+      - MYSQL_PASSWORD: magentoNOTmagneto
+      - MYSQL_DATABASE: magento
+    
